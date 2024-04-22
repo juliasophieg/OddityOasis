@@ -3,9 +3,15 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 const FactBoxContainer = styled(motion.div)`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: left;
   padding: 0 2rem;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Heading1 = styled.h1`
@@ -13,6 +19,9 @@ const Heading1 = styled.h1`
   font-weight: 300;
   line-height: 1.2;
   margin: 0.5rem 0;
+  @media screen and (min-width: 768px) {
+    margin-left: -2rem;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -21,7 +30,7 @@ const Paragraph = styled.p`
   max-width: 520px;
 `;
 
-function FactBox({ selectedFact }) {
+function FactBox({ selectedFact, randomClickCount }) {
   const [randomFact, setRandomFact] = useState(null);
   const [dailyFact, setDailyFact] = useState(null);
 
@@ -57,7 +66,7 @@ function FactBox({ selectedFact }) {
     } else if (selectedFact === "daily") {
       fetchDailyFact();
     }
-  }, [selectedFact]);
+  }, [selectedFact, randomClickCount]);
 
   return (
     <>
@@ -67,7 +76,7 @@ function FactBox({ selectedFact }) {
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <Heading1>
-          {selectedFact === "random" ? "Random Fact" : "Daily Fact"}
+          {selectedFact === "random" ? "Random Fact" : "Daily Fact"}{" "}
         </Heading1>
         <Paragraph>
           {selectedFact === "random" ? randomFact : dailyFact}
