@@ -4,5 +4,10 @@
 
 body {
   margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Platypi", sans-serif;
+  background-color: rgb(252, 249, 244);
+}
+
+main {
+  margin: 64px;
 }

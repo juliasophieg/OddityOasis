@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 
-const HeaderComponent = styled.div`
+const HeaderComponent = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgray;
+  background-color: #ededed;
   margin: 0;
+  padding: 1rem;
 `;
 
 function Header() {
