@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "@emotion/styled";
 import FactBox from "./components/FactBox";
 import Header from "./components/Header";
 import Button from "./components/Button";
@@ -8,6 +9,23 @@ import BodyWrapper from "./components/BodyWrapper";
 import GenerateIcon from "./assets/generate.svg";
 
 import "./App.css";
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
+const ImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 5rem;
+  max-height: 400px;
+`;
 
 function App() {
   const [selectedFact, setSelectedFact] = useState("daily");
@@ -40,11 +58,14 @@ function App() {
   const renderGenerateIcon = () => {
     if (selectedFact === "random") {
       return (
-        <img
-          src={GenerateIcon}
-          onClick={handleRandomButtonClick}
-          alt="Generate Icon"
-        />
+        <ImgWrapper>
+          <img
+            className="randomButton"
+            src={GenerateIcon}
+            onClick={handleRandomButtonClick}
+            alt="Generate Icon"
+          />
+        </ImgWrapper>
       );
     }
     return null;
@@ -69,7 +90,6 @@ function App() {
           randomClickCount={randomClickCount}
         />
         {renderGenerateIcon()}
-        {randomClickCount >= 3 && <BoredBox />}
       </BodyWrapper>
     );
   };
@@ -77,8 +97,12 @@ function App() {
   return (
     <>
       <Header />
-      <ButtonContainer>{renderButtons()}</ButtonContainer>
-      {renderMainContent()}
+      <Section>
+        <ButtonContainer>
+          {renderButtons()} {randomClickCount >= 3 && <BoredBox />}
+        </ButtonContainer>
+        {renderMainContent()}
+      </Section>
     </>
   );
 }
