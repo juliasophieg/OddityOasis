@@ -15,28 +15,27 @@ const BoredWrapper = styled(motion.div)`
   border-radius: 25px 25px 0 0;
   padding: 2rem;
   background-color: #b2d2cd;
-  transition: all 0.6s ease;
 `;
 
 const BoredContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 const Header1 = styled.h1`
   text-align: center;
   font-size: 28px;
   font-weight: 500;
-  margin: 0;
+  margin: 0 0 1rem 0;
 `;
 
 const ParagraphMedium = styled.p`
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  margin: 1rem;
+  margin: 0.5rem;
   background-color: #f0f0f0;
   padding: 0.5rem 1rem;
   border-radius: 50px;
@@ -44,7 +43,7 @@ const ParagraphMedium = styled.p`
 
 const ParagraphSmall = styled.p`
   font-size: 12px;
-  margin: 0;
+  margin: 1rem 0 0.5rem 0;
 `;
 
 const ButtonWrapper = styled.div`
@@ -121,7 +120,7 @@ function BoredBox() {
         <Header1 className="content-element">Hmm.. You seem bored</Header1>
         <p className="content-element">How about..</p>
         <ParagraphMedium className="content-element">
-          &#x2728; {activity} &#x2728;
+          &#x2728; {activity}? &#x2728;
         </ParagraphMedium>
         <ParagraphSmall className="content-element">
           Generate new activity

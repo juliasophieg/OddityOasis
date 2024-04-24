@@ -7,6 +7,7 @@ const FactBoxContainer = styled(motion.div)`
   flex-direction: column;
   text-align: left;
   padding: 1rem 0;
+
   @media (min-width: 768px) {
     max-width: 750px;
     padding: 0 2rem;
